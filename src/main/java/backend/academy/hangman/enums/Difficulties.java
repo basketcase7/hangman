@@ -1,4 +1,4 @@
-package backend.academy.hangman.configuration;
+package backend.academy.hangman.enums;
 
 public enum Difficulties {
 
