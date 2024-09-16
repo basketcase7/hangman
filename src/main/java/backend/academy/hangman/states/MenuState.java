@@ -16,7 +16,9 @@ import static backend.academy.hangman.OutputClass.CHOOSE_CATEGORY;
 import static backend.academy.hangman.OutputClass.CHOOSE_DIFFICULTY;
 import static backend.academy.hangman.OutputClass.printSmth;
 
-
+/**
+ * Класс, реализующий состояние меню
+ */
 @NoArgsConstructor
 public class MenuState implements State {
 
@@ -66,6 +68,11 @@ public class MenuState implements State {
 
     }
 
+    /**
+     * Выбор сложности пользователем
+     *
+     * @return Уровень сложности
+     */
     Difficulties selectDifficulties() {
         String input = sc.nextLine().trim();
         switch (input) {
@@ -77,6 +84,11 @@ public class MenuState implements State {
         return selectedDifficulty;
     }
 
+    /**
+     * Выбор категории слов пользователем
+     *
+     * @return Категория слов
+     */
     Categories selectCategories() {
         String input = sc.nextLine().trim();
         switch (input) {
@@ -88,6 +100,12 @@ public class MenuState implements State {
         return selectedCategory;
     }
 
+    /**
+     * Выбор количества попыток в зависимости от конфигурации игры
+     *
+     * @param selectedConfig Выбранная конфигурация игры
+     * @return Количество попыток при старте игры
+     */
     int takeAttempts(ConfigWord selectedConfig) {
         return switch (selectedConfig.difficulties()) {
             case EASY -> easyAttempts;

@@ -4,6 +4,9 @@ import java.io.PrintStream;
 import java.util.List;
 import lombok.experimental.UtilityClass;
 
+/**
+ * Класс, необходимый для вывода различной информации на экран
+ */
 @UtilityClass
 public class OutputClass {
 

@@ -3,6 +3,9 @@ package backend.academy.hangman.configuration;
 import java.security.SecureRandom;
 import java.util.List;
 
+/**
+ * Класс, в котором выбирается случайное слово в зависимости от выбранной конфигурации игры
+ */
 public class WordRandomizer {
     private final SecureRandom random;
     private final HangmanDictionary dictionary = HangmanDictionary.init();

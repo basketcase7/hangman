@@ -3,6 +3,9 @@ package backend.academy.hangman.states;
 import static backend.academy.hangman.OutputClass.OPEN_MESSAGE;
 import static backend.academy.hangman.OutputClass.printSmth;
 
+/**
+ * Класс, который управляет состояниями игры
+ */
 public class StateHandler {
 
     State menuState;
@@ -21,6 +24,11 @@ public class StateHandler {
         resultState.handle();
     }
 
+    /**
+     * Проверка, что загаданное слово имеет корректную длину
+     *
+     * @throws Exception Слово не имеет корректную длину
+     */
     public void checkLength() throws Exception {
         if (menuState.secretWord().word().isEmpty() || menuState.secretWord().word().length() > MAX_LENGTH) {
             throw new Exception("The selected word has an incorrect length");

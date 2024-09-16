@@ -21,6 +21,10 @@ import static backend.academy.hangman.OutputClass.printList;
 import static backend.academy.hangman.OutputClass.printMassive;
 import static backend.academy.hangman.OutputClass.printSmth;
 
+/**
+ * Класс, содержащий основную логику игры и реализующий состояние игры
+ */
+@SuppressWarnings("JavadocStyle")
 public class GameState implements State {
 
     @Getter
@@ -58,6 +62,9 @@ public class GameState implements State {
         maxAttempts = currentAttempts;
     }
 
+    /**
+     * Основной метод класса, который поочередно вызывает все необходимые для работы игры методы
+     */
     @Override
     public void handle() {
         yourConfig();
@@ -83,12 +90,22 @@ public class GameState implements State {
         }
     }
 
+    /**
+     * Метод, в котором обрабатываются промежуточные результаты игры
+     *
+     * @param input            Введенная буква
+     * @param wordMassive      Массив букв, которые были отгаданы
+     * @param word             Загаданное слово
+     * @param comparator       экземпляр класса, благодаря которому происходит проверка наличия буквы в слове
+     * @param incorrectLetters Лист из букв, которые были введены пользователем, но их не оказалось в загаданном слове
+     * @return Информация о количестве оставшихся попыток
+     */
     public boolean checkAnswer(
-        String input,
-        String[] wordMassive,
-        String word,
-        Comparator comparator,
-        List<String> incorrectLetters
+            String input,
+            String[] wordMassive,
+            String word,
+            Comparator comparator,
+            List<String> incorrectLetters
     ) {
         if (comparator.compare(input) && comparator.checkInput(input)) {
             printSmth("Great! \"" + input.toUpperCase() + "\" is in the word!\n");
@@ -114,6 +131,9 @@ public class GameState implements State {
         printSmth("Selected difficulty level is " + selectedConfig.difficulties());
     }
 
+    /**
+     * @return Подсказска, если осталось 2 или менее попыток
+     */
     public String giveHelp() {
         if (currentAttempts <= 2) {
             return "Help: " + help;
@@ -130,6 +150,13 @@ public class GameState implements State {
         return wordMassive;
     }
 
+    /**
+     * Кладет букву в массив отгаданных букв, если буква была найдена в слове
+     *
+     * @param wordMassive Массив отгаданных букв
+     * @param word        Загаданное слово
+     * @param letter      Введенная буква
+     */
     private void putLetter(String[] wordMassive, String word, String letter) {
         for (int i = 0; i < wordMassive.length; i++) {
             if (word.charAt(i) == letter.charAt(0)) {
@@ -138,6 +165,9 @@ public class GameState implements State {
         }
     }
 
+    /**
+     * Рисует висельника в зависимости от отношения оставшихся попыток к максимальному количеству попыток
+     */
     private void drawCurrentHangman() {
         float percentage = (float) currentAttempts / maxAttempts;
         if (percentage == one) {

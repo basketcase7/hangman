@@ -5,6 +5,10 @@ import backend.academy.hangman.enums.Difficulties;
 import java.util.HashMap;
 import java.util.List;
 
+/**
+ * Класс, в котором содержатся все слова, предусмотренные игрой
+ * @param dictionary словарь, в котором ключ - конфигурация игры, значение - слово с подсказкой
+ */
 public record HangmanDictionary(HashMap<ConfigWord, List<Word>> dictionary) {
 
     public static HangmanDictionary init() {
