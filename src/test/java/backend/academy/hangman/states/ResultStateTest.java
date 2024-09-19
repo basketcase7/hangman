@@ -6,6 +6,7 @@ import backend.academy.hangman.configuration.Word;
 import backend.academy.hangman.enums.Categories;
 import backend.academy.hangman.enums.Difficulties;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.MockedStatic;
@@ -14,6 +15,7 @@ import org.mockito.MockitoAnnotations;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
+@DisplayName("Проверка ResultState")
 public class ResultStateTest {
 
     private ResultState resultState;
@@ -39,6 +41,7 @@ public class ResultStateTest {
         resultState = new ResultState(secretWord, selectedConfig, 8);
     }
 
+    @DisplayName("Проверка отображения сообщения при победе")
     @Test
     public void testCheckResultWin() {
 
@@ -65,6 +68,7 @@ public class ResultStateTest {
         }
     }
 
+    @DisplayName("Проверка отображения сообщения при поражении")
     @Test
     public void testCheckResultLose() {
 

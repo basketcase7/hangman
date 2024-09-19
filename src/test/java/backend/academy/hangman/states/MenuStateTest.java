@@ -9,6 +9,7 @@ import backend.academy.hangman.enums.Difficulties;
 import java.security.SecureRandom;
 import java.util.Scanner;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -16,6 +17,7 @@ import org.mockito.MockitoAnnotations;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
+@DisplayName("Проверка MenuState")
 class MenuStateTest {
 
     @InjectMocks
@@ -41,6 +43,7 @@ class MenuStateTest {
         menuState.wordRandom(mockWordRandomizer);
     }
 
+    @DisplayName("Проверка выбора уровня сложности пользователем при корректном вводе")
     @Test
     void testSelectDifficulties_ValidInput() {
 
@@ -51,6 +54,7 @@ class MenuStateTest {
         assertEquals(Difficulties.MEDIUM, result);
     }
 
+    @DisplayName("Проверка выбора случайного уровня сложности при некорректном вводе")
     @Test
     void testSelectDifficulties_InvalidInput() {
 
@@ -63,6 +67,7 @@ class MenuStateTest {
         assertEquals(Difficulties.HARD, result);
     }
 
+    @DisplayName("Проверка выбора категории пользователем при корректном вводе")
     @Test
     void testSelectCategories_ValidInput() {
 
@@ -73,6 +78,7 @@ class MenuStateTest {
         assertEquals(Categories.COUNTRIES, result);
     }
 
+    @DisplayName("Проверка выбора случайной категории при некорректном вводе")
     @Test
     void testSelectCategories_InvalidInput() {
 
@@ -85,6 +91,7 @@ class MenuStateTest {
         assertEquals(Categories.MUSIC, result);
     }
 
+    @DisplayName("Проверка изначального количества попыток в игре в зависимости от уровня сложности")
     @Test
     void testTakeAttempts() {
 
@@ -97,6 +104,7 @@ class MenuStateTest {
         assertEquals(4, menuState.takeAttempts(configHard));
     }
 
+    @DisplayName("Проверка инициализации всех преднастроек для игры в зависимости от категории и уровня сложности")
     @Test
     void testHandle() {
 

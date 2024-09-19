@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
@@ -18,6 +19,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
+@DisplayName("Проверка GameState")
 public class GameStateTest {
 
     private Word secretWord;
@@ -43,6 +45,7 @@ public class GameStateTest {
         gameState = new GameState(secretWord, selectedConfig, 8);
     }
 
+    @DisplayName("Проверка инициализации всех параметров для игры")
     @Test
     public void testInitialization() {
 
@@ -54,6 +57,7 @@ public class GameStateTest {
 
     }
 
+    @DisplayName("Проверка массива, количества попыток и листа неверных букв при вводе буквы, которая есть в слове")
     @Test
     public void testCheckAnswerCorrectGuess() {
 
@@ -71,6 +75,7 @@ public class GameStateTest {
         assertEquals(0, incorrectWords.size());
     }
 
+    @DisplayName("Проверка подсказки при низком количестве попыток")
     @Test
     public void testGiveHelpWithLowAttempts() {
 
@@ -81,6 +86,7 @@ public class GameStateTest {
         assertEquals(gameState.giveHelp(), "Help: Country in North America");
     }
 
+    @DisplayName("Проверка массива, количества попыток и листа неверных букв при вводе буквы, которой нет в слове")
     @Test
     public void testCheckAnswerIncorrectGuess() {
 

@@ -4,13 +4,16 @@ import backend.academy.hangman.enums.Categories;
 import backend.academy.hangman.enums.Difficulties;
 import java.util.HashSet;
 import java.util.Set;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+@DisplayName("Проверка ConfigRandomizer")
 public class ConfigRandomizerTest {
 
     private final ConfigRandomizer randomizer = new ConfigRandomizer();
 
+    @DisplayName("Проверка случайной категории")
     @Test
     void testRandomCategory() {
 
@@ -27,6 +30,7 @@ public class ConfigRandomizerTest {
 
     }
 
+    @DisplayName("Проверка случайного уровня сложности")
     @Test
     void testRandomDifficultyLevel() {
 

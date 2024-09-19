@@ -1,6 +1,7 @@
 package backend.academy.hangman;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
 
@@ -11,6 +12,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
+@DisplayName("Проверка OutputClass")
 public class OutputClassTest {
     private PrintStream mockPrintStream;
 
@@ -21,6 +23,7 @@ public class OutputClassTest {
         OutputClass.output = mockPrintStream;
     }
 
+    @DisplayName("Проверка вывода строки в консоль")
     @Test
     public void testPrintSmth() {
         String message = "Hello, World!";
@@ -29,6 +32,7 @@ public class OutputClassTest {
         verify(mockPrintStream).println(message);
     }
 
+    @DisplayName("Проверка вывода массива в консоль")
     @Test
     public void testPrintMassive() {
         String[] massive = {"A", "B", "C"};
@@ -47,6 +51,7 @@ public class OutputClassTest {
         verify(mockPrintStream).println();
     }
 
+    @DisplayName("Проверка вывода листа в консоль")
     @Test
     public void testPrintList() {
         List<String> list = Arrays.asList("X", "Y", "Z");

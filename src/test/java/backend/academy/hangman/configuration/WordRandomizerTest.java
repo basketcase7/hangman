@@ -4,6 +4,7 @@ import backend.academy.hangman.enums.Categories;
 import backend.academy.hangman.enums.Difficulties;
 import java.security.SecureRandom;
 import java.util.List;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -12,6 +13,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.mockito.Mockito.when;
 
+@DisplayName("Проверка WordRandomizer")
 @ExtendWith(MockitoExtension.class)
 public class WordRandomizerTest {
 
@@ -21,6 +23,7 @@ public class WordRandomizerTest {
     @InjectMocks
     private WordRandomizer wordRandomizer;
 
+    @DisplayName("Проверка случайного слова для категории Countries и уровня сложности Easy")
     @Test
     void testRandomWordCountriesEasy() {
 
@@ -35,6 +38,7 @@ public class WordRandomizerTest {
         assertThat(actualWord).isEqualTo(expectedWord);
     }
 
+    @DisplayName("Проверка случайного слова для категории Brands и уровня сложности Medium")
     @Test
     void testRandomWordBrandsMedium() {
 
@@ -49,6 +53,7 @@ public class WordRandomizerTest {
         assertThat(actualWord).isEqualTo(expectedWord);
     }
 
+    @DisplayName("Проверка случайного слова для категории Music и уровня сложности Hard")
     @Test
     void testRandomWordMusicHard() {
 

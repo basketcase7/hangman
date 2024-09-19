@@ -5,12 +5,14 @@ import backend.academy.hangman.enums.Difficulties;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+@DisplayName("Проверка HangmanDictionary")
 public class HangmanDictionaryTest {
-
+    @DisplayName("Проверка инициализации словаря")
     @Test
     void testInitCreatesExpectedDictionary() {
 
@@ -86,6 +88,7 @@ public class HangmanDictionaryTest {
             "The initialized dictionary does not match the expected dictionary.");
     }
 
+    @DisplayName("Проверка списка слов по выбранному уровню сложности и категории")
     @Test
     void testInitHasExpectedWordsForCategoryAndDifficulty() {
         HangmanDictionary dictionary = HangmanDictionary.init();
